@@ -15,10 +15,10 @@ Comme je n'ai pas vraiment envie de me démener à récupérer l'API privée de 
 
 
 ## Mise en place
-- Premièrement, il vous faut modifier les identifiants de connexion. Ça se passe ligne 12.
-- Ensuite, il faut télécharger BlueStacks. (https://cloud.bluestacks.com/api/getdownloadnow?platform=win&win_version=10)
-- Dans BlueStacks, connectez-vous sur le PlayStore et installez SnapChat. Vous verrez un raccourci apparaître sur le bureau.
-**⚠️ Attention, la fenêtre d'accueil de SnapChat doit être visible sur le bureau lorsque vous exécutez le script !⚠️**
+- Premièrement, il vous faut modifier les identifiants de connexion. Ça se passe ligne 12.<br />
+- Ensuite, il faut télécharger BlueStacks. (https://cloud.bluestacks.com/api/getdownloadnow?platform=win&win_version=10)<br />
+- Dans BlueStacks, connectez-vous sur le PlayStore et installez SnapChat. Vous verrez un raccourci apparaître sur le bureau.<br />
+**⚠️ Attention, la fenêtre d'accueil de SnapChat doit être visible sur le bureau lorsque vous exécutez le script !⚠️**<br />
 
 Ce n'est pas encore idéal, puisqu'il est nécessaire d'avoir 24h/24 son ordinateur "dédié" à la fenêtre de Snap'. Si vous voulez un VPS Windows, venez là :*https://discord.gg/Y5cCwHsgaS*
 
@@ -32,9 +32,9 @@ Faites une Pull Request ou bien contactez moi sur Discord (*MathiAs2Pique_#1717*
 
 ## *Roadmap*
 
-[x] Prévenir lors des nouveaux devoirs
-[] Résumé quotidien des devoirs
-[] Prévenir lors de nouvelles notes
-[] Message spécial lors des évaluations
-[] Prévenir lors des nouveaux documents dans le Cloud
-[] Des commandes ?
+- [x] Prévenir lors des nouveaux devoirs<br />
+- [ ] Résumé quotidien des devoirs<br />
+- [ ] Prévenir lors de nouvelles notes<br />
+- [ ] Message spécial lors des évaluations<br />
+- [ ] Prévenir lors des nouveaux documents dans le Cloud<br />
+- [ ] Des commandes ?
