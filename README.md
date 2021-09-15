@@ -18,7 +18,7 @@ Comme je n'ai pas vraiment envie de me démener à récupérer l'API privée de 
 - Premièrement, il vous faut modifier les identifiants de connexion. Ça se passe ligne 12.<br />
 - Ensuite, il faut télécharger BlueStacks. (https://cloud.bluestacks.com/api/getdownloadnow?platform=win&win_version=10)<br />
 - Dans BlueStacks, connectez-vous sur le PlayStore et installez SnapChat. Vous verrez un raccourci apparaître sur le bureau.<br />
-**⚠️ Attention, la fenêtre d'accueil de SnapChat doit être visible sur le bureau lorsque vous exécutez le script !⚠️**<br />
+**⚠️ Attention, la fenêtre d'accueil de SnapChat doit être visible lorsque vous exécutez le script !⚠️**<br />
 
 Ce n'est pas encore idéal, puisqu'il est nécessaire d'avoir 24h/24 son ordinateur "dédié" à la fenêtre de Snap'. Si vous voulez un VPS Windows, venez là :*https://discord.gg/Y5cCwHsgaS*
 
