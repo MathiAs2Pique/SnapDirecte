@@ -4,7 +4,7 @@ Snapchat bot to send EcoleDirecte's homework (and more, I hope) in DMs (or in gr
 The rest will be in French, sorry.
 
 #### Disclaimer
-C'est mon premier "vrai" script en python, merci d'être indulgent à propos de la qualité du code ! Je suis conscient qu'elle n'est pas optimale, et travaille à l'améliorer.
+C'est mon premier "vrai" script en python, merci d'être indulgent à propos de la qualité du code ! Je suis conscient qu'elle n'est pas optimale, et je travaille à l'améliorer.
 
 ## Fonctionnement
 ### 1. Récupération des données
@@ -42,4 +42,5 @@ Faites une Pull Request ou bien contactez moi sur Discord (*MathiAs2Pique_#1717*
 - [ ] Prévenir lors de nouvelles notes<br />
 - [ ] Message spécial lors des évaluations<br />
 - [ ] Prévenir lors des nouveaux documents dans le Cloud<br />
+- [ ] Utiliser l'API privée de SnapChat au lieu de BlueStacks <br />
 - [ ] Des commandes ?
