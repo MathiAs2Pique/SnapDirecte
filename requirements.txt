@@ -1,0 +1,6 @@
+pyperclip
+pyautogui
+requests
+base64
+re
+json
