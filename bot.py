@@ -27,6 +27,7 @@ def decode_unicode_references(data):
     ret = re.sub("&#(\d+)(;|(?=\s))", _callback, data.replace('&nbsp;', ' '))
     ret = ret.replace("&eacute;", "é")
     ret = ret.replace("&egrave;", "è")
+    ret = ret.replace("&agrave;", "à")
     return ret
 class api:
     def init(self):
@@ -94,7 +95,11 @@ class guicontrol:
         pyautogui.scroll(2)
         time.sleep(1)
         chatLocation = pyautogui.locateOnScreen('group.png', confidence=0.9)
-        pyautogui.click(chatLocation)
+        pyautogui.moveTo(chatLocation)
+        pyautogui.move(-35, 10)
+        pyautogui.click()
+        time.sleep(1)
+        pyautogui.click(pyautogui.locateOnScreen('finalDm.png', confidence=0.9))
         print("CLICK !3 ")
         time.sleep(0.5)
 
@@ -123,7 +128,7 @@ class guicontrol:
 
 
 ##DEBUG##
-# print(api.test(api))
+# guicontrol.goDm()
 # exit(1)
 #########
 # Main #
@@ -133,7 +138,7 @@ while True:
     print(checkHeure)
     try:
         lastMinute = 62
-        if checkHeure != "18,29":
+        if checkHeure != "16,58":
             if lastMinute != date.now().strftime('%M'):
                 lastMinute = date.now().strftime('%M')
                 print("Cron")
@@ -179,6 +184,7 @@ while True:
                                 with open("var.txt", 'r+') as file:
                                     json.dump(fileData, file, indent=4) #Pour le débug, plus simple d'avoir indent sur 4. A supprimer si tout marche bien.
                                 print(message)
+                                print(devoir['id'])
                                 guicontrol.goChat()
                                 guicontrol.goDm()
                                 guicontrol.sendDm(message)
@@ -210,13 +216,11 @@ while True:
                         message = message+"\n"+matiere
                         message = message+"\n"+prof
                         message = message+"\n"+devoirs
-                else:
-                    message = message+"\n"+'Pas de devoirs pour ce jour-ci'
-                print(message)
-                guicontrol.goChat()
-                guicontrol.goDm()
-                guicontrol.sendDm(message)
-                guicontrol.returnToAccueil()
+                        print(message)
+                        guicontrol.goChat()
+                        guicontrol.goDm()
+                        guicontrol.sendDm(message)
+                        guicontrol.returnToAccueil()
             time.sleep(62)
     except Exception as e:
         print("Erreur durant le script principal.")
@@ -224,4 +228,3 @@ while True:
         print(e)
         print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         time.sleep(2)
-
