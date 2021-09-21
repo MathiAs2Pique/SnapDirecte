@@ -28,6 +28,8 @@ def decode_unicode_references(data):
     ret = ret.replace("&eacute;", "é")
     ret = ret.replace("&egrave;", "è")
     ret = ret.replace("&agrave;", "à")
+    ret = ret.replace("&iacute;", "í")
+    ret = ret.replace("&oacute;", "ó")
     return ret
 class api:
     def init(self):
@@ -197,7 +199,7 @@ while True:
 
         else:
             print("Résumé")
-            for x in range(0, 5, 1):
+            for x in range(0, 4, 1):
                 if x>0:
                     timestampDateDevoir = today + datetime.timedelta(days = x)
                 else:
