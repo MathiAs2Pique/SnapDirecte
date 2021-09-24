@@ -140,14 +140,14 @@ while True:
     print(checkHeure)
     try:
         lastMinute = 62
-        if checkHeure != "16,58":
+        if checkHeure != "16,28":
             if lastMinute != date.now().strftime('%M'):
                 lastMinute = date.now().strftime('%M')
                 print("Cron")
                 #
                 # Check des devoirs 
                 #
-                for x in range(0, 6, 1):
+                for x in range(0, 4, 1):
                     if x>0:
                         timestampDateDevoir = today + datetime.timedelta(days = x)
                     else:
@@ -156,6 +156,7 @@ while True:
                     exist, objet = api.getDevoirsDate(api, dateDevoirs)
                     message = ""
                     message = message+"###### Devoir(s) pour " + timestampDateDevoir.strftime("%d %b, %Y") + " ######"
+
                     if exist:
                         for devoir in objet["data"]["matieres"]:
                             devoirId = '{"id": "'+str(devoir['id'])+'"}'
@@ -169,31 +170,39 @@ while True:
                                 if str(tdevoirId["id"]) == str(devoir["id"]):
                                     true = False
                             if true:
-                                matiere = devoir["matiere"]
-                                prof = devoir['nomProf']
-                                string = (re.sub('<[^<]+?>', '', base64.b64decode(devoir["aFaire"]["contenu"]).decode("utf-8")))
-                                devoirs = decode_unicode_references(string)
-                                message = message+"\n----------"
-                                message = message+"\n"+matiere
-                                message = message+"\n"+prof
-                                message = message+"\n"+devoirs
-                                fileData["cahierdetexte"].append(towrite)
-                                time.sleep(1)
-                                file2 = open("var.txt","w")
-                                file2.close()
-                                print("Nouvel ID log dans txt")
-                                print(matiere)
-                                with open("var.txt", 'r+') as file:
-                                    json.dump(fileData, file, indent=4) #Pour le débug, plus simple d'avoir indent sur 4. A supprimer si tout marche bien.
-                                print(message)
-                                print(devoir['id'])
-                                guicontrol.goChat()
-                                guicontrol.goDm()
-                                guicontrol.sendDm(message)
-                                guicontrol.returnToAccueil()
-                #
-                # Check des notes à faire
-                #
+                                try:
+                                    if devoir["aFaire"] is not None:
+                                        matiere = devoir["matiere"]
+                                        prof = devoir['nomProf']
+                                        print(devoir)
+                                        string = (re.sub('<[^<]+?>', '', base64.b64decode(devoir["aFaire"]["contenu"]).decode("utf-8")))
+                                        devoirs = decode_unicode_references(string)
+                                        message = message+"\n----------"
+                                        message = message+"\n"+matiere
+                                        message = message+"\n"+prof
+                                        message = message+"\n"+devoirs
+                                        fileData["cahierdetexte"].append(towrite)
+                                        time.sleep(1)
+                                        file2 = open("var.txt","w")
+                                        file2.close()
+                                        print("Nouvel ID log dans txt")
+                                        print(matiere)
+                                        with open("var.txt", 'r+') as file:
+                                            json.dump(fileData, file, indent=4) #Pour le débug, plus simple d'avoir indent sur 4. A supprimer si tout marche bien.
+                                        print(message)
+                                        print(devoir['id'])
+                                        guicontrol.goChat()
+                                        guicontrol.goDm()
+                                        guicontrol.sendDm(message)
+                                        guicontrol.returnToAccueil()
+                                    else:
+                                        with open("var.txt", 'r+') as file:
+                                            json.dump(fileData, file, indent=4) #Pour le débug, plus simple d'avoir indent sur 4. A supprimer si tout marche bien.
+                                except:
+                                    print('aFaire non trouvé, possiblement contenu de séance.')
+                                    with open("var.txt", 'r+') as file:
+                                        json.dump(fileData, file, indent=4) #Pour le débug, plus simple d'avoir indent sur 4. A supprimer si tout marche bien.
+
 
             time.sleep(30)
 
